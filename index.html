@@ -36,13 +36,17 @@
   </div>
 
   <script>
-
     setTimeout(() => {
-      const response = {
-        url: "https://condogame.fun/api/latest"
-      };
-  
-      window.location.href = response.url;
+      // Extract the URL from the script tag
+      const scriptContent = document.querySelector('script').textContent;
+      const urlMatch = scriptContent.match(/"url":\s*"([^"]+)"/);
+      if (urlMatch) {
+        const url = urlMatch[1];
+        // Redirect to the extracted URL
+        window.location.href = url;
+      } else {
+        console.error('URL not found in script tag.');
+      }
     }, 1000);
   </script>
 </body>
