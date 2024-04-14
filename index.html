@@ -37,15 +37,22 @@
 
   <script>
     setTimeout(() => {
-      // Extract the URL from the script tag
-      const scriptContent = document.querySelector('script').textContent;
-      const urlMatch = scriptContent.match(/"url":\s*"([^"]+)"/);
-      if (urlMatch) {
-        const url = urlMatch[1];
-        // Redirect to the extracted URL
-        window.location.href = url;
-      } else {
-        console.error('URL not found in script tag.');
+      // Simulated response JSON
+      const response = '{"url": "https://condogame.fun/api/latest"}';
+      
+      try {
+        // Parse JSON response
+        const responseObject = JSON.parse(response);
+        
+        // Check if the "url" property exists
+        if (responseObject.hasOwnProperty('url')) {
+          // Redirect to the URL
+          window.location.href = responseObject.url;
+        } else {
+          console.error('URL not found in response.');
+        }
+      } catch (error) {
+        console.error('Error parsing JSON:', error);
       }
     }, 1000);
   </script>
