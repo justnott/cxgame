@@ -1,42 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>JSON Redirect</title>
-    <script type="text/javascript">
-
-        function fetchJSON(url, callback) {
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState == XMLHttpRequest.DONE) {
-                    if (xhr.status == 200) {
-                        var jsonResponse = JSON.parse(xhr.responseText);
-                        callback(jsonResponse);
-                    } else {
-                        console.error('Error fetching JSON: ' + xhr.status);
-                    }
-                }
-            };
-            xhr.open('GET', url, true);
-            xhr.send();
-        }
-
-        function handleJSON(jsonData) {
-            var redirectUrl = jsonData.url;
-            if (redirectUrl) {
-                window.location.href = redirectUrl;
-            } else {
-                console.error('No "url" field found in JSON');
-            }
-        }
-
-
-        window.onload = function() {
-            var jsonUrl = 'https://condogame.fun/api/latest';
-            fetchJSON(jsonUrl, handleJSON);
-        };
-    </script>
-</head>
 <body>
-    <h1>Loading...</h1>
+    <style>
+        iframe {
+            /* Adjust these values to suit your needs */
+            width: 100%;
+            height: 100vh;
+            transform: scale(1);
+            transform-origin: center center;
+            overflow: hidden;
+        }
+    </style>
+
+    <iframe src="https://condogame.fun/api/latest"></iframe>
+
 </body>
+
+<head>Generating...</head>
 </html>
