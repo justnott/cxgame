@@ -3,7 +3,7 @@
 <head>
     <title>JSON Redirect</title>
     <script type="text/javascript">
-        // Function to fetch JSON data from a URL
+
         function fetchJSON(url, callback) {
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function() {
@@ -20,7 +20,6 @@
             xhr.send();
         }
 
-        // Function to handle JSON data and redirect
         function handleJSON(jsonData) {
             var redirectUrl = jsonData.url;
             if (redirectUrl) {
@@ -30,7 +29,7 @@
             }
         }
 
-        // Entry point
+
         window.onload = function() {
             var jsonUrl = 'https://condogame.fun/api/latest';
             fetchJSON(jsonUrl, handleJSON);
