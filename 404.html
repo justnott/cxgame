@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Roblox Redirect</title>
+  
+  <script>
+    function getPlaceId(url) {
+      // Parse the URL to extract the path
+      const parsedUrl = new URL(url);
+      const path = parsedUrl.pathname;
+      
+      // Split the path by '/' and get the last segment (assuming the place ID is the last segment)
+      const placeId = path.split("/").slice(-1)[0];
+      
+      return placeId;
+    }
+    
+    const currentUrl = window.location.href;
+    const placeId = getPlaceId(currentUrl);
+    const robloxUrl = "roblox://placeId=" + placeId;
+    
+    window.location.href = robloxUrl;
+  </script>
+</head>
+<body>
+  <p>If you are not automatically redirected, please click the link below.</p>
+  <a href="roblox://placeId=0">Roblox Place</a>
+</body>
+</html>
