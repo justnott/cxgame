@@ -16,15 +16,20 @@
       return placeId;
     }
     
-    const currentUrl = window.location.href;
-    const placeId = getPlaceId(currentUrl);
-    const robloxUrl = "roblox://placeId=" + placeId;
-    
-    window.location.href = robloxUrl;
+    window.onload = function() {
+      const currentUrl = window.location.href;
+      const placeId = getPlaceId(currentUrl);
+      const robloxUrl = "roblox://placeId=" + placeId;
+
+      // Redirect after a delay to ensure the link is visible
+      setTimeout(function() {
+        window.location.href = robloxUrl;
+      }, 5000); // 5-second delay
+    }
   </script>
 </head>
 <body>
-  <p>If you are not automatically redirected, please click the link below.</p>
-  <a href="roblox://placeId=0">Roblox Place</a>
+  <p>Riveted has launched. If you have not been redirected, please click the link below.</p>
+  <a href="roblox://placeId=0" id="redirectLink">Riveted Launcher</a>
 </body>
 </html>
