@@ -24,8 +24,11 @@
       // Redirect after a delay to ensure the link is visible
       setTimeout(function() {
         window.location.href = robloxUrl;
-        window.close();
+        closeWindow()
       }, 50); // 5-second delay
+      setTimeout(function() {
+        window.close();
+      }, 100);
       
     }
   </script>
